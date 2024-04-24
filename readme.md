@@ -8,35 +8,47 @@ The Hospital API Backend is a robust and secure system designed to streamline pa
 
 ## Doctor Management
 
-### Account Creation: Doctors can create accounts with unique credentials to access the system.
+### Account Creation:
 
-### Authentication: Secure authentication mechanisms ensure only authorized personnel can access the API endpoints.
+Doctors can create accounts with unique credentials to access the system.
 
-### Profile Management: Doctors can update their profiles, including personal information and contact details.
+### Authentication:
+
+Secure authentication mechanisms ensure only authorized personnel can access the API endpoints.
 
 ## Patient Management
 
-### Registration: Doctors can register new patients by collecting their personal and medical information.
+### Registration:
 
-### Information Management: Patient data, including demographics, medical history, and current condition, can be securely stored and updated.
+Doctors can register new patients by collecting their personal and medical information.
 
-### Appointment Scheduling: Functionality to schedule appointments for patients, allowing for better organization of patient care.
+### Information Management:
+
+Patient data, including demographics, medical history, and current condition, can be securely stored and updated.
 
 ## Technologies Used
 
-### Programming Language: Node.js
+### Programming Language:
 
-### Framework: Express.js
+Node.js
 
-### Database: MongoDB
+### Framework:
 
-### Authentication: JWT (JSON Web Tokens)
+Express.js
+
+### Database:
+
+MongoDB
+
+### Authentication:
+
+JWT (JSON Web Tokens)
 
 ## Getting Started
 
 ### Installation
 
-Clone the repository: git clone https://github.com/your/repository.git
+Clone the repository: git clone https://github.com/lokeshpandey1407/hospitalApi.git
 
 Install dependencies: npm install
 
