@@ -36,14 +36,20 @@ export default class PatientController {
   async createReport(req, res, next) {
     const { id } = req.params;
     try {
-      const patient = await this.patientRepository.createReport(id, req.body);
-      if (!patient) {
+      const report = await this.patientRepository.createReport(id, req.body);
+      if (!report) {
         return res.status(404).json({
           success: false,
           message: "Can't find patient with given Id.",
         });
       }
-      res.status(200).json({ success: true, message: "", data: patient });
+      res
+        .status(201)
+        .json({
+          success: true,
+          message: "Report created successfully",
+          data: report,
+        });
     } catch (error) {
       console.log(error);
       next(error);

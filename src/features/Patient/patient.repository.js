@@ -17,15 +17,17 @@ export default class PatientRepository {
 
   //For creating report by patient id
   async createReport(id, data) {
-    const report = await this.reportRepository.create(data);
-    const patient = await PatientModel.findByIdAndUpdate(
+    const report = (
+      await (await this.reportRepository.create(data)).populate("patient")
+    ).populate({ path: "doctor", select: ["name", "specialization", "phone"] });
+    await PatientModel.findByIdAndUpdate(
       id,
       {
         $push: { reports: report._id },
       },
       { new: true }
     ).populate("reports");
-    return patient;
+    return report;
   }
 
   //For getting all reports by patient id
