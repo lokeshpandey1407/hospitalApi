@@ -4,7 +4,14 @@ export default class ReportRepository {
   //For creating a report
   async create(data) {
     const report = await new ReportModel(data).save();
-    return report;
+    const populatedReport = await ReportModel.populate(report, [
+      { path: "patient" },
+      {
+        path: "doctor",
+        select: ["name", "specialization", "phone"],
+      },
+    ]);
+    return populatedReport;
   }
 
   //For getting all reports by patient id

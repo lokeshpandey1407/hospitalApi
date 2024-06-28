@@ -35,21 +35,25 @@ export default class PatientController {
   //Function to create Report of a patient
   async createReport(req, res, next) {
     const { id } = req.params;
+    const { doctor, status, date } = req.body;
     try {
-      const report = await this.patientRepository.createReport(id, req.body);
+      const report = await this.patientRepository.createReport(id, {
+        doctor,
+        status,
+        date,
+        patient: id,
+      });
       if (!report) {
         return res.status(404).json({
           success: false,
           message: "Can't find patient with given Id.",
         });
       }
-      res
-        .status(201)
-        .json({
-          success: true,
-          message: "Report created successfully",
-          data: report,
-        });
+      res.status(201).json({
+        success: true,
+        message: "Report created successfully",
+        data: report,
+      });
     } catch (error) {
       console.log(error);
       next(error);

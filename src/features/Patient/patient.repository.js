@@ -17,9 +17,7 @@ export default class PatientRepository {
 
   //For creating report by patient id
   async createReport(id, data) {
-    const report = (
-      await (await this.reportRepository.create(data)).populate("patient")
-    ).populate({ path: "doctor", select: ["name", "specialization", "phone"] });
+    const report = await this.reportRepository.create(data);
     await PatientModel.findByIdAndUpdate(
       id,
       {
